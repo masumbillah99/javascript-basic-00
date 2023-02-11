@@ -1,0 +1,51 @@
+  <-- API JSON, SERVER, DATA LOAD, HTTP -->
+
+# API(Application Programming Interface): A set of functions and procedures allowing the creation of applications that access the features or data of an operating system, application or other service.
+# JSON: Javascript Object Notation.
+# JSON.stringify: যদি আমরা javascript object কে json এ কনভার্ট করতে চায় তাহলে JSON.stringify() method ব্যবহার করবো। মেথডটি অবজেক্টের property গুলোকে স্ট্রিং-এ কনভার্ট করে। স্ট্রিং হিসেবে সার্ভারে পাঠাতে হলে এই মেথডটি ব্যবহার করবো।
+# JSON.parse(): আবার যদি একটি json string কে javascript object এ কনভার্ট করতে চায়, তাহলে JSON.parse() method use/ব্যবহার করবো। আর সার্ভার থেকে যখন রিসিভ করবো তার আগে ইউজ করার জন্য parse() করে নিবো।
+# Promise(): যদি সার্ভারকে কোন রিকুয়েস্ট পাঠানো হয় তাহলে সে দিবে কি দিবে না ক্লায়েন্ট সেটা জানে না। রিকুয়েস্টের এগেনেস্টে রেসপন্স সাকসেসফুলি পেলে কি করবো সেই ফাংশনগুলি প্রস্তুত রাখা এবং রেসপন্স হিসেবে error দিলে কি করবো সেই ফাংশনগুলি প্রস্তুত রাখা।
+# Server-এ যখন আমরা কোন ডাটার জন্য request করি তখন ঐ request-এর response দুই রকমের হতে পারে। 1.successful 2. failure
+
+# HTTP Methods: GET, POST, PUT, HEAD, DELETE, PATCH, OPTIONS, CONNECT, TRACE
+# HTTP: The Hypertext Transfer Protocol is designed to enable communications between clients and servers. HTTP works as a request-response protocol beteen a client and server.
+       A web browser may be the client, and an application on a computer that hosts a web site may be ther server.
+# http request status code: 
+# 404(Not Found): http request status/error code.
+# GET: GET is used to request data from a specified resource. & POST is used to send data to a server to create/update a resource.
+# POST: 
+# fetch: 
+* async: async সবসময় ফাংশনের আগে বসে। এবং যে ফাংশনের আগে বসে সে সেই ফাংশনের নরমাল যে বৈশিষ্ট্যগুলো আছে সেগুলোকে হালকা টুইস্ট করে async বানিয়ে ফেলে।
+
+	@ jsonplaceholder.com
+*ASCII: American Standard Code for Information Interchange.
+
+setTimeout(): The setTimeout() method calls a function after a number of milliseconds(1s=1000ms). তুমি একটা কাজ করবা তোমার হাতের কাজ শেষ হয়ে যাওয়ার পরে। এবং এই মেথডটি একবারেই এক্সিকিউট হয়।
+setInterval(): this method calls a function at specified intervals(in ms). The setInterval() method continues calling the function untill clearInterval() is called, or the window is closed.
+	কিন্তু এই মেথডটি নির্দিষ্ট সময়/বিরতি পর পর এক্সিকিউট হয় বা হতে থাকে। for stop in terminal(ctrl + c)
+clearTimeout(): this method clears a timer set with the setTimeout() method.
+clearInterval(): this method clears a timer set with the setInterval() method.
+
+    <-- how browser works -->
+1. browser-এ বিভিন্ন অ্যালার্ট কিংবা নোটিফিকেশন পাঠানোর জন্য alert(), confirm() মেথডগুলো ব্যবহার করা হয়।
+2. user-এর কাছ থেকে data ইনপুট নেওয়ার জন্য prompt() মেথড ব্যবহার করা হয়।
+  alert(): The alert() method displays an alert box with a message and an OK button. The alert() method is used when you want information to come through to the user.
+  confirm(): The confirm() method displays a dialog box with a message, an OK button, and a Cancel button. The confirm() method returns true if the user clicked "OK", otherwise false.
+  prompt(): The prompt() method displays a dialog box that prompts the user for input. The prompt() method returns the input value if the user clicks "OK", otherwise it returns null.
+
+3. Layout: ওয়েবপেজে কোথায় কি সেট করতে হবে,কোথায় কতটুকু মার্জিন বা প্যাডিং দিতে হবে, (header,navbar,section,footer etc.) কে কোথায় বসাতে হবে বা কোনটাকে কোন পজিশনে সেট করতে হবে এসব কিছুই হচ্ছে লেআউট (layout).
+4. URL: Uniform Resource Locator (scheme/protocol, subdomain, domain, path, query, hash)
+5. window.location(): কোন ওয়েবসাইটে যেতে চাইলে এই মেথডের মাধ্যমে যাওয়া যায়। তাছাড়া, এই মেথডের মাধ্যমে ওয়েবসাইটকে reload,replace,নতুন কোন সাইটে যেতে চাইলে assign, href etc. করা যায়।
+6. .history(): আমরা কারেন্ট যে ওয়েবসাইটে আছি সেটা থেকে পিছনে/সামনে ও কতগুলো সাইটে ঢুঁ মেরেছি তা বের করা যায়। back, forward, go etc.
+7. cookies: ইউজারের আইডেন্টিটি মনে রাখার জন্য ব্রাউজারের একটা কমন ফিচার হচ্ছে cookies. ধর, তুমি একটা ওয়েবসাইটে প্রায় ১/২দিন/৫-৬মাস আগে ভিজিট করছো, এখন তুমি যখন ঐ ওয়েবসাইটে আবার ভিজিট কর তাহলে তারা বুঝতে পারে তুমি কোন userটা ছিলা, তোমার previous history কি ছিলো এই রিলেটেড অনেক জিনিস কুকিজের মাধ্যমে সেট করে ওয়েবসাইটে তা জানতে পারে।
+     2 types of cookies.(session, Permanent, third-party)
+
+*user যখন কোন একটা ওয়েবসাইটের রিচ এক্সপেরিয়েন্স ইউজারকে দিতে চায় যে ঐ কারেন্ট সেশনের কি অবস্থা অথবা সে পরবর্তীতে এই ওয়েবসাইটে আসলে তার ব্যবহার কেমন হবে বা আমরা আমাদের ওয়েবসাইট টি কে কিভাবে কাজে লাগাবো ওই রিলেটেড ইনফরমেশনগুলো আমরা লোকাল স্টোরেজে রেখে দিবো যাতে লম্বা সময় থাকতে পারে।  আবার খেয়াল রাখতে হবে যে, লোকাল স্টোরেজে যে ইনফরমেশনগুলো থাকে সেগুলো হচ্ছে ওপেন/উন্মুক্ত (অন্য কেউ এসে তা দেখতে পারবে) ।
+	তাই secure or others information like as(password,gmail & needed inform.)এখানে রাখার দরকার নাই। তবে যে ইনফরমেশনগুলো ইউজার পেলে তেমন কোন সমস্যা হবে না সেগুলো রাখা যাবে।
+8. ধরো, তুমি নিজে একটা ওয়েবসাইট ডেভেলপ করতেছো এটার যে ডাটাগুলো cache করা আছে ঐটাকে ক্লিয়ার করতেছে না। এই জন্য দেখা যায় তুমি জাভাস্ক্রিপ্ট রিলিজ দিছো কিন্তু কোন কারণে সেই latest script টা অ্যাপ্লাই হচ্ছে না। সেই জন্য তোমার cache clear করতে হয়।
+9. আমরা যদি ব্রাউজারের কোন জায়গায় যেতে চায়, তাহলে শর্টকার্টে chrome://name ইউজ করতে পারি।
+
+
+
+
+

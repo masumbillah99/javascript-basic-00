@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie</title>
+    <script type="text/javascript">
+        // set cookie function
+        function writeCookie() {
+            if (document.myform.customer.value == '') {
+                alert("Enter some value!");
+                return;
+            }
+            let cookieValue = escape(document.myform.customer.value) + ';';
+            document.cookie = 'name=' + cookieValue;
+            document.write("Setting cookies : " + "name = " + cookieValue);
+        }
+
+        // read cookie function
+        function readCookie() {
+            let allcookies = document.cookie;
+            document.write("all cookies:" + allcookies);
+
+            // get all the cookies pairs in an array
+            cookiearray = allcookies.split(';');
+
+            // now take key value pair out of this array
+            for (let i = 0; i < cookiearray.length; i++) {
+                const name = cookiearray[i].split('=')[0];
+                const value = cookiearray[i].split('=')[1];
+                document.write('key is:' + name + 'and value is:' + value);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Set cookie</h3>
+    <form name="myform" action="">
+        Enter name: <input type="text" name="customer" id="">
+        <input type="button" value="Set cookie" onclick="writeCookie()">
+    </form>
+
+    <h3>Read cookie</h3>
+    <form action="" name="myform2">
+        <p>click the following button and see the result:</p>
+        <input type="button" value="Get cookie" onclick="readCookie()">
+    </form>
+</body>
+
+</html>

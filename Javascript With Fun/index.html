@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./icons/js.png" type="image/x-icon">
+    <title>JAVASCRIPT WITH FUN</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: darksalmon;
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="text">Starting...</h1>
+    <h1 id="text-2"></h1>
+    <script>
+        const text = document.getElementById("text");
+        const prog = "We Love Programming!!!";
+        let idx = 1;
+
+        setInterval(writeText, 100);
+        function writeText() {
+            text.innerText = prog.slice(0, idx);
+            idx++;
+            // if (idx > prog.length) {
+            //     idx = 1;
+            // }
+        }
+
+        // 2nd text animation
+        const text2 = document.getElementById("text-2");
+        const prog2 = "HTML, CSS AND JAVASCRIPT";
+        setInterval(() => {
+            text2.innerText = prog2.slice(0, idx);
+        }, 100);
+    </script>
+</body>
+
+</html>
