@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understand "this" keyword</title>
+</head>
+
+<body>
+    <h1>This is not confused anymore</h1>
+    <p onclick="this.innerText = 'you clicked'">This is a paragraph. don't click this.</p>
+    <script>
+        const myobject = {
+            fname: "Kududs",
+            lname: "Ali",
+            getFullName: function () {
+                console.log(this);
+                return 'Mr. '+ this.fname + this.lname;
+            }
+        }
+        const anotherObject = {
+            fname: 'Mukul',
+            lname: "Ali"
+        }
+
+        anotherObject.getFullName = myobject.getFullName;
+        console.log(anotherObject.getFullName);
+        anotherObject.getFullName();
+    </script>
+</body>
+
+</html>

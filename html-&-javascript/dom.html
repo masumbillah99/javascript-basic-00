@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & JAVASCRIPT</title>
+    <style>
+        body {
+            margin: 60px;
+            font-family: Trebuchet Ms;
+        }
+
+        h1 {
+            text-align: center;
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Javascript Program</h1>
+    <hr>
+    <main>
+        <section>
+            <h3>Exploring DOM</h3>
+            <article id="first-article">
+                <h3>article-1</h3>
+                <p class="author">author-1</p>
+                <p class="descrip">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam odit unde assumenda
+                    eius. Debitis dolorem ullam beatae pariatur labore, harum dicta dolore voluptates doloribus aut,
+                    cupiditate ad possimus. Nihil, minus.</p>
+            </article>
+            <article class="special">
+                <h3>article-2</h3>
+                <p class="author">author-2</p>
+                <p class="descrip">Voluptas obcaecati earum ab animi, consequuntur in molestias tempora enim cumque
+                    nihil
+                    quisquam a totam, quis unde deserunt numquam, ipsam ullam! Deserunt ab mollitia repellat enim
+                    reprehenderit totam odit numquam.</p>
+            </article>
+            <article class="special">
+                <h3>article-3</h3>
+                <p class="author">author-3</p>
+                <p class="descrip">Nulla quisquam asperiores, ab, cumque beatae sunt, impedit aspernatur nisi sapiente
+                    debitis natus incidunt consequuntur aliquam ratione corrupti dolorum expedita nesciunt a atque sit.
+                    Hic
+                    autem necessitatibus dicta dolore recusandae?</p>
+            </article>
+
+            <article>
+                <h3>Grocery List</h3>
+                <ul id="item-list">
+                    <li>item-1</li>
+                    <li>item-2</li>
+                    <li>item-3</li>
+                    <li>item-4</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+
+
+    <script>
+
+        // add new paragraph in first article
+        const article = document.getElementById("first-article");
+        const newPara = document.createElement('p');
+        newPara.innerHTML = 'this paragraph made by javascript';
+        article.appendChild(newPara);
+        newPara.style.backgroundColor = 'lightgreen';
+
+        let authors = document.getElementsByClassName('author');
+        for (let i = 0; i < authors.length; i++) {
+            let element = authors[i];
+            element.innerHTML = 'class-' + (i + 1);
+            element.style.backgroundColor = 'tomato';
+            element.style.margin = '10px';
+        }
+
+        // add new item in ul>li
+        const ul = document.getElementById("item-list");
+        const li = document.createElement('li');
+        li.innerHTML = 'item-5 (js)';
+        ul.appendChild(li);
+
+    </script>
+</body>
+
+</html>

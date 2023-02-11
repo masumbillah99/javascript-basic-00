@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await</title>
+    <style>
+        .li-style {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Data load</h2>
+    <h4 id="demo"></h4>
+    <h3 id="demo2"></h3>
+    <ul id="list-item"></ul>
+    <script>
+        function loadData() {
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then((res) => res.json())
+                .then((data) => {
+                    showData(data);
+                })
+        }
+        function showData(data) {
+            const listItem = document.getElementById("list-item");
+            for (let i = 0; i < data.length; i++) {
+                const user = data[i];
+                const item = document.createElement("li");
+                item.innerText = user.name;
+                listItem.appendChild(item);
+            }
+        }
+        // loadData();
+
+        async function getData() {
+            const res = await fetch('https://jsonplaceholder.typicode.com/users');
+            const data = await res.json();
+            return data;
+        }
+        getData().then(data => {
+            showData(data);
+        });
+
+        // mdn example
+        function resolveAfter2Seconds() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('resolved');
+                }, 2000);
+            });
+        }
+        async function asyncCall() {
+            console.log('calling');
+            const result = await resolveAfter2Seconds();
+            console.log(result);
+            // expected output: "resolved"
+        }
+        asyncCall();
+
+        // async function hello(name) {
+        //     return 'hello ' + name;
+        // }
+        // const greet = hello('Cerazul');
+        // console.log(greet);
+        // greet.then(res => console.log(res));
+
+        // async function myDisplay() {
+        //     let myPromise = new Promise((resolve) => {
+        //         resolve("I don't miss them!");
+        //     });
+        //     let myPromise2 = new Promise((reject) => {
+        //         reject("I really miss them.");
+        //     });
+        //     document.getElementById("demo").innerHTML = await myPromise;
+        //     document.getElementById("demo2").innerHTML = await myPromise2;
+        // }
+        // myDisplay();
+
+        // Synchronous example
+        console.log("I");
+        console.log("eat");
+        console.log("Ice cream");
+
+        // Asynchronous example
+        console.log("I");
+        console.log("eat");
+        setTimeout(() => {
+            console.log("ice-cream");
+        }, 3000);
+        console.log("with a");
+        console.log("spoon");
+
+        // Callback function
+        /** 
+        What is a callback?
+            When you nest a function inside another functio as an argument, that's called a callback.
+        */
+
+        function one() {
+            console.log("step1. after step1 then called step2");
+        }
+
+        function two() {
+            console.log("step2");
+        }
+        two(one());
+    </script>
+</body>
+
+</html>

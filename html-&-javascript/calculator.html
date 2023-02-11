@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calcultor</title>
+
+    <style>
+        h1{
+            text-align: center;
+            padding-top: 20px;
+            font-size: 2.2rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 10vh auto 0 auto;
+            box-shadow: 0px 0px 43px 17px rgba(153, 153, 153, 1);
+        }
+
+        #display {
+            text-align: right;
+            height: 69px;
+            line-height: 70px;
+            padding: 16px 8px;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: rgba(48, 35, 35, 0.979);
+            border-bottom: 1px solid white;
+        }
+
+        .buttons {
+            display: grid;
+            border-bottom: 1px solid #999;
+            border-left: 1px solid #999;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            color: #fff;
+            background-color: rgb(32, 25, 25);
+        }
+
+        .buttons>div {
+            border-top: 1px solid #999;
+            border-right: 1px solid #999;
+        }
+
+        .button {
+            border: 0.5px solid #999;
+            line-height: 100px;
+            text-align: center;
+            font-size: 1.7rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .button:hover {
+            color: #ffffff;
+            background-color: rgb(112, 112, 112);
+            transition: 0.5s ease-in-out;
+        }
+
+        #equal {
+            background-color: rgba(85, 85, 255, 0.89);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <h1>My Calculator</h1>
+        <div class="container">
+            <div id="display"></div>
+            <div class="buttons">
+                <div class="button">C</div>
+                <div class="button">&larr;</div>
+                <div class="button">*</div>
+                <div class="button">/</div>
+                <div class="button">7</div>
+                <div class="button">8</div>
+                <div class="button">9</div>
+                <div class="button">-</div>
+                <div class="button">4</div>
+                <div class="button">5</div>
+                <div class="button">6</div>
+                <div class="button">+</div>
+                <div class="button">1</div>
+                <div class="button">2</div>
+                <div class="button">3</div>
+                <div class="button">.</div>
+                <div class="button">(</div>
+                <div class="button">0</div>
+                <div class="button">)</div>
+                <div id="equal" class="button">=</div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+
+        let display = document.getElementById('display');
+
+        // button event Handler;
+        let allButton = Array.from(document.getElementsByClassName('button'));
+        allButton.map(button => {
+            button.addEventListener('click', (e) => {
+                switch (e.target.innerText) {
+                    case 'C':
+                        display.innerText = '';
+                        break;
+                    case '←':
+                        display.innerText = display.innerText.slice(0, -1);
+                        break;
+                    case '=':
+                        try {
+                            display.innerText = eval(display.innerText);
+                        } catch {
+                            display.innerText = 'Syntax Error!';
+                        }
+                        break;
+                    default:
+                        display.innerText += e.target.innerText;
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

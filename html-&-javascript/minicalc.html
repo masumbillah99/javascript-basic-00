@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            box-sizing: border-box;
+            background-color: #ecf0f3;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(202, 202, 202);
+        }
+
+        .display {
+            display: grid;
+            grid-template-columns: repeat(4, 66px);
+            box-shadow: 6px 6px  #fff,
+                6px 6px 13px rgba(0, 0, 0, .16);
+            border-radius: 32px;
+            padding: 16px;
+        }
+
+        input {
+            height: 68px;
+            width: 258px;
+            grid-column: span 4;
+            padding: 20px;
+            box-shadow: inset -6px -6px 13px #fff,
+                inset 6px 6px 13px rgba(0, 0, 0, .16);
+            background-color: #ecf0f3;
+            border: none;
+            border-radius: 31px;
+            padding: 20px;
+            margin: 40px 0 30px 0;
+            text-align: end;
+            font-size: 2.4rem;
+            font-weight: bold;
+        }
+
+        button {
+            box-shadow: inset 6px 6px 13px #fff,
+                6px 6px 13px rgba(0, 0, 0, .16);
+            background-color: #ecf0f3;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        button:hover {
+            color: black;
+            background-color: lightgray;
+            transition: 0.5s ease-in-out;
+            box-shadow: none;
+        }
+
+        .equal {
+            width: 120px;
+            border-radius: 42px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="display">
+            <input type="text" id="input-text" placeholder="0">
+            <button onclick="clr()">C</button>
+            <button onclick="del()">DEL</button>
+            <button onclick="calculate('%')">%</button>
+            <button onclick="calculate('/')">/</button>
+            <button onclick="calculate(7)">7</button>
+            <button onclick="calculate(8)">8</button>
+            <button onclick="calculate(9)">9</button>
+            <button onclick="calculate('*')">*</button>
+            <button onclick="calculate(4)">4</button>
+            <button onclick="calculate(5)">5</button>
+            <button onclick="calculate(6)">6</button>
+            <button onclick="calculate('-')">-</button>
+            <button onclick="calculate(1)">1</button>
+            <button onclick="calculate(2)">2</button>
+            <button onclick="calculate(3)">3</button>
+            <button onclick="calculate('+')">+</button>
+            <button onclick="calculate('.')">.</button>
+            <button onclick="calculate(0)">0</button>
+            <button onclick="Result()" class="equal">=</button>
+        </div>
+    </div>
+
+
+    <script>
+        let result = document.getElementById('input-text');
+
+        let calculate = (number) => {
+            result.value += number;
+        }
+
+        let Result = () => {
+            try {
+                result.value = eval(result.value);
+            } catch {
+                Swal.fire(
+                    'Error!',
+                    'Please enter valid input!',
+                    'success'
+                )
+            }
+        }
+
+        function clr(){
+            result.value = '';
+        }
+
+        function del(){
+            result.value = result.value.slice(0, -1);
+        }
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

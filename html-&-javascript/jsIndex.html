@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning JS</title>
+    <style>
+        body {
+            background-color: lightgray;
+        }
+
+        article {
+            border: 2px solid tomato;
+            border-radius: 20px;
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <section>
+            <button onclick="img1()">button1</button>
+            <button onclick="img2()">button2</button>
+            <p></p>
+            <img id="img-all" src="#" alt="" style="height: 300px; width: 300px;">
+
+
+
+            <h1 id="title">Hello Javascript</h1>
+            <article id="first-art">
+                <h3>article-1</h3>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, quod! Laudantium,
+                    assumenda quia quaerat enim distinctio, illum odio a facere ipsam quis quo nemo tenetur! Repellendus
+                    voluptatem repudiandae ipsam? Aspernatur!</p>
+            </article>
+            <article>
+                <h3>article-2</h3>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, quod! Laudantium,
+                    assumenda quia quaerat enim distinctio, illum odio a facere ipsam quis quo nemo tenetur! Repellendus
+                    voluptatem repudiandae ipsam? Aspernatur!</p>
+            </article>
+            <article>
+                <h3>article-3</h3>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, quod! Laudantium,
+                    assumenda quia quaerat enim distinctio, illum odio a facere ipsam quis quo nemo tenetur! Repellendus
+                    voluptatem repudiandae ipsam? Aspernatur!</p>
+            </article>
+            <article>
+                <h3></h3>
+                <ul id="gift-list">
+                    <li>git item-1</li>
+                    <li>git item-2</li>
+                    <li>git item-3</li>
+                    <li>git item-4</li>
+                    <li>git item-5</li>
+                </ul>
+            </article>
+            <p></p>
+
+            <a href="#">Home</a>
+            <ul>
+                <li><a href="#">list1</a></li>
+                <li><a href="#">list2</a></li>
+            </ul>
+            <div><a href="#">Contact</a></div>
+        </section>
+    </main>
+
+    <script>
+        document.querySelector("a").innerText = "new link";
+        document.querySelector("li a").innerHTML = 'list1';
+        document.querySelector("div a").innerHTML = "last link";
+
+        //for button (onclick);
+        var myPic = document.querySelector("#img-all");
+        function img1() {
+            myPic.src = "man 3.png";
+        }
+        function img2() {
+            myPic.src = "man 4.png"
+        }
+
+
+        //creating a element;
+        const article = document.getElementById('first-art');
+        const newPara = document.createElement('p');
+        newPara.innerHTML = 'This is added by Javascript';
+        article.appendChild(newPara);
+
+        //for title;
+        var title = document.getElementById('title');
+        title.style.backgroundColor = 'yellow';
+        title.style.color = 'black';
+        title.style.textAlign = 'center';
+        title.style.fontSize = '2.5em';
+        title.style.padding = '20px';
+        title.style.margin = '0';
+
+        //add one more gift item;
+        const ul = document.getElementById('gift-list');
+        const li = document.createElement('li');
+        li.innerHTML = 'brand new Gift';
+        ul.appendChild(li);
+    </script>
+
+    <script>
+        var authors = document.getElementsByClassName('description');
+        for (var i = 0; i < authors.length; i++) {
+            var element = authors[i];
+            element.style.backgroundColor = ('yellow');
+            element.style.padding = ('10px');
+        }
+
+    </script>
+</body>
+
+</html>

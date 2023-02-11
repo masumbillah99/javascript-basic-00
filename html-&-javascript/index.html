@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <style>
+        body {
+            margin: 60px;
+            font-family: Trebuchet Ms;
+        }
+
+        h1 {
+            text-align: center;
+            padding-bottom: 15px;
+        }
+        u {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Javascript Program</h1>
+    <hr>
+
+    <p><u>Creating an object: </u></p>
+
+    <p id="demo"></p>
+
+    <script>
+        let person = {
+            firstName: "Masum",
+            lastName: "Billah",
+            age: 19
+        };
+
+        document.getElementById("demo").innerHTML = person.firstName + ' ' + person.lastName;
+    </script>
+</body>
+
+</html>

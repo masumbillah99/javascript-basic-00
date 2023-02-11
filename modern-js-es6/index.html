@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore javascript</title>
+</head>
+
+<body>
+
+    <h2 id="title">Classes: HTML List Binding</h2>
+    <ul id="myList">
+        <!-- to be filled by javascript -->
+        <li>item-1</li>
+        <li>item-2</li>
+    </ul>
+
+
+    <script>
+
+        class ListBinding {
+            constructor (element) {
+                this.listElement = element;
+                this.textList = ['DECODE', 'CODE', 'ENCODE'];
+            }
+            
+            static createListItem(text) {
+                const li = document.createElement('li');
+                li.textContent = text;
+                return li;
+            }
+
+            update() {
+                while (this.listElement.firstChild) {
+                    this.listElement.removeChild(this.listElement.firstChild);
+                }
+
+                for (const text of this.textList) {
+                    this.listElement.appendChild(ListBinding.createListItem(text));
+                }
+            }
+        }
+
+        const myList = document.getElementById('myList');
+        const listBinding = new ListBinding(myList);
+        
+        // class ListBinding {
+        //     constructor(element) {
+        //         this.listElement = element;
+        //         this.textList = ["Decode", "Encode"];
+        //     }
+
+        //     // Makes an <li></li> element/tag
+        //     static createListItem(text) {
+        //         const li = document.createElement("li");
+        //         li.textContent = text;
+        //         return li;
+        //     }
+
+        //     update() {
+        //         while (this.listElement.firstChild) {
+        //             this.listElement.removeChild(this.listElement.firstChild);
+        //         }
+
+        //         // fill <ul>/<ol> tag with <li>
+        //         for (const text of this.textList){
+        //             this.listElement.appendChild(ListBinding.createListItem(text));
+        //         }
+        //     }
+        // }
+    </script>
+    <!-- <script type="text/javascript">
+        const myList = document.getElementById("myList");
+        const listBinding = new ListBinding(myList);
+    </script> -->
+</body>
+
+</html>
